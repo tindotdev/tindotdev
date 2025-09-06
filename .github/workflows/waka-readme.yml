@@ -1,0 +1,110 @@
+# WakaTime README Stats - Comprehensive Configuration
+# This workflow updates your README.md with detailed development metrics from WakaTime
+#
+# Prerequisites:
+# 1. WakaTime account with API key: https://wakatime.com/settings/account
+# 2. GitHub Personal Access Token with 'repo' and 'user' scopes
+# 3. Configure repository secrets:
+#    - WAKATIME_API_KEY: Your WakaTime API key
+#    - GH_TOKEN: Your GitHub Personal Access Token
+#
+# The stats will be inserted between <!--START_SECTION:waka--> and <!--END_SECTION:waka--> in your README.md
+
+name: Waka Readme Stats
+
+on:
+  schedule:
+    # Runs at 12am IST (6:30pm UTC)
+    # Customize this schedule using https://crontab.guru/
+    - cron: "30 18 * * *"
+  workflow_dispatch: # Allows manual triggering from Actions tab
+
+jobs:
+  update-readme:
+    name: Update README with Dev Metrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: anmol098/waka-readme-stats@master
+        with:
+          # === REQUIRED SECRETS ===
+          # These must be configured in your repository settings
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+          # === DISPLAY CONFIGURATION ===
+          # All features enabled to showcase comprehensive development metrics
+
+          # Shows badge with total lines of code written
+          SHOW_LINES_OF_CODE: "True"
+
+          # Shows badge with total coding time tracked
+          SHOW_TOTAL_CODE_TIME: "True"
+
+          # Shows profile view counter
+          SHOW_PROFILE_VIEWS: "True"
+
+          # Shows commit activity patterns (morning/day/evening/night)
+          SHOW_COMMIT: "True"
+
+          # Shows commits distribution across days of the week
+          SHOW_DAYS_OF_WEEK: "True"
+
+          # Shows programming languages breakdown with percentages
+          SHOW_LANGUAGE: "True"
+
+          # Shows operating systems used for development
+          SHOW_OS: "True"
+
+          # Shows time spent on different projects
+          SHOW_PROJECTS: "True"
+
+          # Shows your timezone information
+          SHOW_TIMEZONE: "True"
+
+          # Shows code editors/IDEs usage statistics
+          SHOW_EDITORS: "True"
+
+          # Shows repository count by programming language
+          SHOW_LANGUAGE_PER_REPO: "True"
+
+          # Shows GitHub profile statistics (contributions, storage, etc.)
+          SHOW_SHORT_INFO: "True"
+
+          # Shows lines of code chart over time quarters
+          SHOW_LOC_CHART: "True"
+
+          # Shows last update timestamp
+          SHOW_UPDATED_DATE: "True"
+
+          # === CUSTOMIZATION OPTIONS ===
+
+          # Language for stats display (e.g., "en", "es", "fr", "de", "zh-CN")
+          LOCALE: "en"
+
+          # Section identifier in README (matches <!--START_SECTION:waka-->)
+          SECTION_NAME: "waka"
+
+          # Use your GitHub credentials for commits
+          COMMIT_BY_ME: "True"
+
+          # Custom commit message for updates
+          COMMIT_MESSAGE: "📊 Updated Dev Metrics"
+
+          # GitHub username for commits (defaults to repo owner)
+          COMMIT_USERNAME: ${{ github.repository_owner }}
+
+          # GitHub email for commits
+          COMMIT_EMAIL: ${{ github.repository_owner }}@users.noreply.github.com
+
+          # Date format for last update timestamp
+          UPDATED_DATE_FORMAT: "%d/%m/%Y %H:%M:%S"
+
+          # Progress bar style (1: █░, 2: ⣿⣀, 3: ⬛⬜)
+          SYMBOL_VERSION: "1"
+
+          # Comma-separated list of repos to ignore (e.g., "test-repo, sandbox")
+          IGNORED_REPOS: ""
+
+          # Enable verbose logging for debugging
+          DEBUG_LOGGING: "False"
+
