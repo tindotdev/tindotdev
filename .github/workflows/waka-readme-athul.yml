@@ -1,0 +1,137 @@
+# athul/waka-readme - Minimalist WakaTime Stats
+# This workflow provides clean, language-focused development metrics
+# with multiple time range views for comparison
+#
+# Prerequisites:
+# 1. WakaTime account with API key: https://wakatime.com/settings/account
+# 2. Configure repository secret: WAKATIME_API_KEY
+#
+# The stats will be inserted in different sections based on time range
+
+name: Waka Readme (athul) - Multiple Time Ranges
+
+on:
+  schedule:
+    # Runs at 1am IST (7:30pm UTC) - 1 hour after anmol098 workflow
+    - cron: "30 19 * * *"
+  workflow_dispatch: # Allows manual triggering from Actions tab
+
+jobs:
+  # Job 1: Update stats for last 7 days
+  update-readme-week:
+    name: Update Weekly Stats (Last 7 Days)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          
+          # === SECTION CONFIGURATION ===
+          SECTION_NAME: "waka-minimal-week"
+          
+          # === TIME CONFIGURATION ===
+          TIME_RANGE: "last_7_days"
+          
+          # === DISPLAY CONFIGURATION ===
+          SHOW_TITLE: "true"
+          BLOCKS: "░▒▓█"
+          CODE_LANG: "text"
+          LANG_COUNT: "8"
+          SHOW_TIME: "true"
+          SHOW_TOTAL: "true"
+          SHOW_MASKED_TIME: "false"
+          STOP_AT_OTHER: "false"
+          IGNORED_LANGUAGES: ""
+          
+          # === COMMIT CONFIGURATION ===
+          COMMIT_MESSAGE: "📊 Updated Weekly Dev Metrics (athul)"
+          TARGET_BRANCH: "main"
+          TARGET_PATH: "README.md"
+          COMMITTER_NAME: "github-actions[bot]"
+          COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+          AUTHOR_NAME: ${{ github.repository_owner }}
+          AUTHOR_EMAIL: ${{ github.repository_owner }}@users.noreply.github.com
+
+  # Job 2: Update stats for last 30 days
+  update-readme-month:
+    name: Update Monthly Stats (Last 30 Days)
+    runs-on: ubuntu-latest
+    needs: update-readme-week # Run after weekly stats to avoid conflicts
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Pull latest changes from previous job
+          ref: main
+      
+      - uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          
+          # === SECTION CONFIGURATION ===
+          SECTION_NAME: "waka-minimal-month"
+          
+          # === TIME CONFIGURATION ===
+          TIME_RANGE: "last_30_days"
+          
+          # === DISPLAY CONFIGURATION ===
+          SHOW_TITLE: "true"
+          BLOCKS: "⣀⣄⣤⣦⣶⣷⣿"
+          CODE_LANG: "python"
+          LANG_COUNT: "10"
+          SHOW_TIME: "true"
+          SHOW_TOTAL: "true"
+          SHOW_MASKED_TIME: "false"
+          STOP_AT_OTHER: "false"
+          IGNORED_LANGUAGES: ""
+          
+          # === COMMIT CONFIGURATION ===
+          COMMIT_MESSAGE: "📊 Updated Monthly Dev Metrics (athul)"
+          TARGET_BRANCH: "main"
+          TARGET_PATH: "README.md"
+          COMMITTER_NAME: "github-actions[bot]"
+          COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+          AUTHOR_NAME: ${{ github.repository_owner }}
+          AUTHOR_EMAIL: ${{ github.repository_owner }}@users.noreply.github.com
+
+  # Job 3: Update stats for all time
+  update-readme-all:
+    name: Update All-Time Stats
+    runs-on: ubuntu-latest
+    needs: update-readme-month # Run after monthly stats to avoid conflicts
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Pull latest changes from previous job
+          ref: main
+      
+      - uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          
+          # === SECTION CONFIGURATION ===
+          SECTION_NAME: "waka-minimal-all"
+          
+          # === TIME CONFIGURATION ===
+          TIME_RANGE: "all_time"
+          
+          # === DISPLAY CONFIGURATION ===
+          SHOW_TITLE: "true"
+          BLOCKS: "->"
+          CODE_LANG: "rust"
+          LANG_COUNT: "15"
+          SHOW_TIME: "true"
+          SHOW_TOTAL: "true"
+          SHOW_MASKED_TIME: "true" # Show total including unclassified
+          STOP_AT_OTHER: "false"
+          IGNORED_LANGUAGES: ""
+          
+          # === COMMIT CONFIGURATION ===
+          COMMIT_MESSAGE: "📊 Updated All-Time Dev Metrics (athul)"
+          TARGET_BRANCH: "main"
+          TARGET_PATH: "README.md"
+          COMMITTER_NAME: "github-actions[bot]"
+          COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+          AUTHOR_NAME: ${{ github.repository_owner }}
+          AUTHOR_EMAIL: ${{ github.repository_owner }}@users.noreply.github.com

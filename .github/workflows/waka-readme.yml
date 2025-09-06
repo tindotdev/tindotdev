@@ -24,6 +24,12 @@ jobs:
     name: Update README with Dev Metrics
     runs-on: ubuntu-latest
     steps:
+      # Check out the repository to ensure assets can be committed
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0 # Fetch full history for better chart generation
+
       - uses: anmol098/waka-readme-stats@master
         with:
           # === REQUIRED SECRETS ===
@@ -73,6 +79,9 @@ jobs:
           # Shows lines of code chart over time quarters
           SHOW_LOC_CHART: "True"
 
+          # Ensure chart uses correct branch
+          BRANCH_NAME: "main"
+
           # Shows last update timestamp
           SHOW_UPDATED_DATE: "True"
 
@@ -107,4 +116,3 @@ jobs:
 
           # Enable verbose logging for debugging
           DEBUG_LOGGING: "False"
-
