@@ -1,18 +1,20 @@
 <!--START_SECTION:waka-->
 
-```text
-From: 01 September 2025 - To: 08 September 2025
+```python
+From: 08 August 2025 - To: 07 September 2025
 
-Total Time: 60 hrs 26 mins
+Total Time: 209 hrs 21 mins
 
-TypeScript   31 hrs 1 min    ████████████▓░░░░░░░░░░░░   51.07 %
-Lua          25 hrs 4 mins   ██████████▒░░░░░░░░░░░░░░   41.30 %
-Markdown     1 hr 23 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.30 %
-JSON         1 hr 3 mins     ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.73 %
-Python       36 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.00 %
-Text         19 mins         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.53 %
-YAML         19 mins         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.53 %
-Other        17 mins         ░░░░░░░░░░░░░░░░░░░░░░░░░   00.48 %
+TypeScript        135 hrs 8 mins  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀⣀   64.15 %
+Lua               44 hrs 15 mins  ⣿⣿⣿⣿⣿⣤⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   21.01 %
+Python            9 hrs 42 mins   ⣿⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   04.61 %
+JSON              7 hrs 34 mins   ⣷⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   03.60 %
+Markdown          3 hrs 39 mins   ⣦⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   01.74 %
+Cheetah           3 hrs 34 mins   ⣦⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   01.70 %
+Bash              2 hrs 3 mins    ⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   00.98 %
+Other             1 hr 17 mins    ⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   00.62 %
+YAML              36 mins         ⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   00.29 %
+Makefile          26 mins         ⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀   00.21 %
 ```
 
 <!--END_SECTION:waka-->
