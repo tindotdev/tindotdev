@@ -14,9 +14,9 @@ name: Waka Readme Stats
 
 on:
   schedule:
-    # Runs at 12am IST (6:30pm UTC)
+    # Runs at 12am Bangkok time (5:00pm UTC)
     # Customize this schedule using https://crontab.guru/
-    - cron: "30 18 * * *"
+    - cron: "0 17 * * *"
   workflow_dispatch: # Allows manual triggering from Actions tab
 
 jobs:
